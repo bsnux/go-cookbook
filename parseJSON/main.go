@@ -23,6 +23,16 @@ func main() {
 		log.Fatal(jsonErr)
 	}
 
+	// Simple way to parse. We know we're getting an array
+	var results []map[string]interface{}
+	json.Unmarshal([]byte(body), &results)
+	for _, record := range results {
+		fmt.Printf("Title: %s\n", record["title"])
+	}
+
+	fmt.Println("**********************")
+
+	// Another way to parse
 	switch result.(type) {
 	case []interface{}:
 		// We're expecting this type but `switch` with different types is the way
