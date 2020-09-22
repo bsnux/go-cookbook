@@ -50,6 +50,8 @@ func slices() {
 	fmt.Printf("len is %d\n", len(ss))
 	fmt.Printf("capicity is %d\n", cap(ss))
 
+	// Arrays: `...` notation specifies a length equal to the number of elements
+	// in the literal
 	a := [...]int{1, 2, 3, 4, 5}
 	newSlice := a[3:4]
 	fmt.Println(newSlice)
