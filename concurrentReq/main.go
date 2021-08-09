@@ -25,24 +25,25 @@ func main() {
 	}
 
 	start := time.Now()
-	ch := make(chan string)
+	ch := make(chan bool)
 	for _, url := range urls {
 		go makeRequest(url, ch)
 	}
 
 	for range urls {
-		fmt.Println(<-ch)
+		<-ch
 	}
 	fmt.Printf("%.2fs elapsed\n", time.Since(start).Seconds())
 
 }
 
 // makeRequest executes a HTTP request
-func makeRequest(url string, ch chan<- string) {
+func makeRequest(url string, ch chan<- bool) {
 	resp, _ := http.Get(url)
 
 	body, _ := ioutil.ReadAll(resp.Body)
 	var user User
 	json.Unmarshal(body, &user)
-	ch <- fmt.Sprintf("ID: %d \tTitle: %s \tCompleted: %t", user.ID, user.Title, user.Completed)
+	fmt.Printf("ID: %d \tTitle: %s \tCompleted: %t\n", user.ID, user.Title, user.Completed)
+	ch <- true
 }
