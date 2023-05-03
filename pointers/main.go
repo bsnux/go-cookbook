@@ -10,8 +10,8 @@ type Persona struct {
 
 // changeName will change `first` using a pointer receiver
 // There are two reasons to use a pointer receiver:
-//  1) The method can modify the value that its receiver points to
-//  2) To avoid copying the value on each method call. This can be more efficient if the receiver is a large struct
+//  1. The method can modify the value that its receiver points to
+//  2. To avoid copying the value on each method call. This can be more efficient if the receiver is a large struct
 func (p *Persona) changeName(newName string) {
 	p.first = newName
 }
@@ -22,11 +22,15 @@ func (p Persona) changeName2(newName string) {
 }
 
 func main() {
-	// Declaring a pointer to `int`
+	// Declaring a pointer to `int`.
+	// A pointer is represented using `*` followed by the type of the stored value
+	// `*` is also used to dereference pointer variables, which gives us access to the value the pointer points to
 	var p *int
 
 	i := 7
 	// `&` generates a pointer to its operand
+	// We use the `&` operator to find the address of a variable
+	// `&i` returns a pointer to an int because `i` is an int
 	p = &i
 
 	fmt.Printf("i= %d\n", i)
