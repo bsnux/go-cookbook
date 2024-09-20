@@ -10,15 +10,16 @@
 
 This repo contains the following components:
 
-- One module with 2 packages
-- One package contains one file where the `SayHello` func lives
+- One module with 3 packages (including `main`).
+- One package contains one file where the `SayHello` func lives, the other one
+contains one file where `SayBye` lives in.
 - Another `main` package living in `cmd` directory which allows us to generate a
   binary using importing the `SayHello` func.
 
 ## How-to run
 
 ```sh
-go build cmd/main.go
+go run cmd/main.go
 ```
 
 ## How-to build the binary

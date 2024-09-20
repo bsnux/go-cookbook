@@ -1,7 +1,11 @@
 package main
 
-import "projectm/hello"
+import (
+	"projectm/bye"
+	"projectm/hello"
+)
 
 func main() {
 	hello.SayHello()
+	bye.SayBye()
 }
