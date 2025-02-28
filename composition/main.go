@@ -51,4 +51,8 @@ func main() {
 	}
 
 	b.contents()
+
+	// Calling to property and method in `Author` from `Post`
+	fmt.Println(post1.lastName)
+	fmt.Println(post1.fullName())
 }
